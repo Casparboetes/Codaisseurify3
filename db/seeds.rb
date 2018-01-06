@@ -1,0 +1,7 @@
+artist_27_1 = Artist.create!( { name: "Kurt Cobain", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_2 = Artist.create!( { name: "Jim Morrison", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_3 = Artist.create!( { name: "Amy Jade Winehouse", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_4 = Artist.create!( { name: "Jimi Hendrix", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg"} )
+artist_27_5 = Artist.create!( { name: "Janis Joplin", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_6 = Artist.create!( { name: "Robert Johnson", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_7 = Artist.create!( { name: "Rudy Lewis", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
