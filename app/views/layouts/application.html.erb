@@ -13,15 +13,11 @@
 
     <%= render "shared/navbar" %>
     <div class="container">
-    <div class="jumbotron">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= link_to "All Aristst", root_path, class: "btn btn-default" %>
+      <div class="jumbotron">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
-    </div>
-<hr>
-    <%#= link_to "All Aristst", root_path, class: "btn btn-default" %>
-    <%#= link_to 'Back', :back, class: "btn btn-default" %>
   </body>
 </html>
