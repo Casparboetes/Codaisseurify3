@@ -1,27 +1,25 @@
 class ArtistsController < ApplicationController
-
+  before_action :set_artist,  only: [:destroy, :show, :create]
 
   def index
     @artists = Artist.all
+    @songs = Song.all
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @songs = @artist.songs
+    @song = Song.new
+    @song.artist_id = @artist.id
   end
 
   def destroy
-    @artist = Artist.find(params[:id])
-
     @artist.destroy
-
-    redirect_to artists_path
+    redirect_to root_path, notice: 'Artist Killed'
   end
-
 
   private
 
-  def artist_params
-    params.require(:artist).permit(:name, :image_url)
+  def set_artist
+   @artist = Artist.find_by_id(params[:id])
   end
-
 end
