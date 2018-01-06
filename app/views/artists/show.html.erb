@@ -1,11 +1,24 @@
+<div class="bio">
 <h1><%= @artist.name %></h1>
 <%= image_tag @artist.image_url %>
+</div>
+<hr>
+
+<h2>Hit List</h2>
+<% if @artist.songs.any? %>
+    <ul>
+    <% @artist.songs.each do |song| %>
+      <li><%= song.title %></li>
+  <% end %>
+  </ul>
+  <% else %>
+    <p>Feel free to add your own songs!</p>
+<% end %>
 
 
-
-
-
+<%= render "songs/form", song: @song %>
 
 
 <hr>
+<%= link_to 'Back', :back, class: "btn btn-default" %>
 <%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
