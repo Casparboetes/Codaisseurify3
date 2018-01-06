@@ -2,23 +2,38 @@
 <h1><%= @artist.name %></h1>
 <%= image_tag @artist.image_url %>
 </div>
-<hr>
 
-<h2>Hit List</h2>
-<% if @artist.songs.any? %>
-    <ul>
-    <% @artist.songs.each do |song| %>
-      <li><%= song.title %></li>
+<div class="songList">
+  <h2>Hit List</h2>
+</div>
+
+<table class="table table-condensed">
+  <% if @artist.songs.any? %>
+        <thead>
+          <tr>
+            <th> Title </th>
+            <th>  </th>
+          </tr>
+        </thead>
+      <% @artist.songs.each do |song| %>
+          <tbody>
+            <tr>
+              <td><%= song.title %></td>
+              <td><%= link_to "Remove Song", artist_song_url(@artist, song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+            </tr>
+          </tbody>
+      <% end %>
+    <% else %>
+      <p>Feel free to add your own songs!</p>
+
   <% end %>
-  </ul>
-  <% else %>
-    <p>Feel free to add your own songs!</p>
-<% end %>
+</table>
+
+
 
 
 <%= render "songs/form", song: @song %>
 
 
 <hr>
-<%= link_to 'Back', :back, class: "btn btn-default" %>
-<%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Remove Artist", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>

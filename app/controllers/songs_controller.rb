@@ -1,23 +1,44 @@
 class SongsController < ApplicationController
   before_action :set_artist
-  before_action :set_song, only: :destroy
+  before_action :set_song, only: [:show, :create, :destroy]
 
-def new
-  @song = Song.new
-end
+  # def index
+  #   @songs = Songs.all
+  #   @song = Song.new
+  # end
 
-def create
-  @song = Song.new(song_params)
-
-  if @song.save
-    redirect_to @artist_path
-  else
-    render 'new'
+  def show
+    @songs = Song.all
+    @song = Song.find(params[:id])
   end
-end
+
+  def create
+    @song = Song.new(song_params)
+    @song.artist_id = params[:artist_id]
+    if @song.save
+      redirect_to @song.artist, notice: "Song added"
+    else
+      redirect_to @song.artist
+    end
+  end
+
+  def destroy
+    @song.destroy
+    redirect_to @song.artist, notice: "Song removed."
+  end
 
 
-
+    # @song = @artist.songs.new(song_params)
+    #   respond_to do |format|
+    #     if @song.save
+    #       format.html { redirect_to @artist, notice: "Song Added" }
+    #       format.json { render json: @song, status: :created }
+    #     else
+    #       redirect_to artist_path
+    #       #format.html { redirect_to @artist }
+    #       #format.json { render json: @song.errors, status: :unprocessable_entity }
+    #   end
+    # end
 
   private
 
@@ -32,6 +53,4 @@ end
   def set_song
    @song = Song.find_by_id(params[:id])
   end
-
-
 end
