@@ -14,7 +14,7 @@ class ArtistsController < ApplicationController
 
   def destroy
     @artist.destroy
-    redirect_to root_path, notice: 'Artist Killed'
+    redirect_to root_path, notice: 'Artist Killed.. huh What? Dead already!'
   end
 
   private
