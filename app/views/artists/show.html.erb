@@ -3,37 +3,46 @@
 <%= image_tag @artist.image_url %>
 </div>
 
-<div class="songList">
-  <h2>Hit List</h2>
-</div>
 
+<div class="row">
+  <!-- <div class="col-md-6 col-md-offset-3"> -->
+    <h1 class="page-header">Hit List</h1>
 
-<table class="table table-condensed">
-  <% if @artist.songs.any? %>
-        <thead>
-          <tr>
-            <th> Title </th>
-            <th>  </th>
-          </tr>
-        </thead>
-      <% @artist.songs.each do |song| %>
-          <tbody>
-            <tr>
-              <td><%= song.title %></td>
-              <td><%= link_to "Remove Song", artist_song_url(@artist, song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %></td>
-            </tr>
-          </tbody>
+    <div class="TodoList">
+      <h2>Hit List</h2>
+    </div>
+
+    <table class="table table-striped" id="todoList">
+      <%= render "songs/form", song: @song %>
+    </table>
+
+    <table class="table table-condensed">
+      <% if @artist.songs.any? %>
+            <thead>
+              <tr>
+                <th> Title </th>
+              </tr>
+            </thead>
+          <% @artist.songs.each do |song| %>
+              <tbody>
+                <tr class="todo succes" data-id="1">
+                  <td class="todo succes" data-id="1"><%= song.title %> <%= link_to "Remove Song", artist_song_url(@artist, song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default pull-right" %></td>
+                </tr>
+              </tbody>
+          <% end %>
+        <% else %>
+          <p>Feel free to add your own songs!</p>
       <% end %>
-    <% else %>
-      <p>Feel free to add your own songs!</p>
+    </table>
 
-  <% end %>
-</table>
-
-
-
-
-<%= render "songs/form", song: @song %>
+    <div class="footer">
+      Songs: <span id="todo-count">1</span> •
+      Done: <span id="completed-count">0</span> •
+      Total: <span id="total-count">1</span> •
+      <a href="#" id="clean-up">Clean up</a>
+    </div>
+    </div>
+    </div>
 
 
 <hr>

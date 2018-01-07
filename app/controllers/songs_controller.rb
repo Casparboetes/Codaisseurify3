@@ -2,43 +2,56 @@ class SongsController < ApplicationController
   before_action :set_artist
   before_action :set_song, only: [:show, :create, :destroy]
 
-  # def index
-  #   @songs = Songs.all
-  #   @song = Song.new
-  # end
+  def index
+    @songs = Song.all
+    @song = Song.new
+  end
 
   def show
     @songs = Song.all
     @song = Song.find(params[:id])
   end
 
+  # def create
+  #   @song = Song.new(song_params)
+  #   @song.artist_id = params[:artist_id]
+  #   if @song.save
+  #     redirect_to @song.artist, notice: "Song added"
+  #   else
+  #     redirect_to @song.artist
+  #   end
+  # end
+
+
   def create
     @song = Song.new(song_params)
     @song.artist_id = params[:artist_id]
-    if @song.save
-      redirect_to @song.artist, notice: "Song added"
-    else
-      redirect_to @song.artist
-    end
+
+      respond_to do |format|
+        if @song.save
+          format.html { redirect_to request.env["HTTP_REFERER"], notice: 'Song Added!' }
+          format.json { render :show, status: :created, location: @songs }
+        else
+          format.html { redirect_to request.env["HTTP_REFERER"] }
+          format.json { render json: @song.errors, status: :unprocessable_entity }
+        end
+      end
   end
 
+  #
+  # def destroy
+  #   @song.destroy
+  #   redirect_to @song.artist, notice: "Song removed."
+  # end
+  #
   def destroy
     @song.destroy
-    redirect_to @song.artist, notice: "Song removed."
-  end
 
-
-    # @song = @artist.songs.new(song_params)
-    #   respond_to do |format|
-    #     if @song.save
-    #       format.html { redirect_to @artist, notice: "Song Added" }
-    #       format.json { render json: @song, status: :created }
-    #     else
-    #       redirect_to artist_path
-    #       #format.html { redirect_to @artist }
-    #       #format.json { render json: @song.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      format.html { redirect_to request.env["HTTP_REFERER"], notice: 'Song Removed.' }
+      format.json { head :no_content }
+    end
+end
 
   private
 
