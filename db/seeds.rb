@@ -3,13 +3,13 @@ Song.destroy_all
 Artist.destroy_all
 
 
-artist_27_1 = Artist.create!( { name: "Kurt Cobain", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
-artist_27_2 = Artist.create!( { name: "Jim Morrison", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
-artist_27_3 = Artist.create!( { name: "Amy Jade Winehouse", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
-artist_27_4 = Artist.create!( { name: "Jimi Hendrix", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg"} )
-artist_27_5 = Artist.create!( { name: "Janis Joplin", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
-artist_27_6 = Artist.create!( { name: "Robert Johnson", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
-artist_27_7 = Artist.create!( { name: "Rudy Lewis", image_url: "https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg" } )
+artist_27_1 = Artist.create!( { name: "Kurt Cobain", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1514825509/esdadw4zqmb8wnilr4fn.jpg" } )
+artist_27_2 = Artist.create!( { name: "Jim Morrison", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1514734983/gptyn9fpbdxvbje0qczv.jpg" } )
+artist_27_3 = Artist.create!( { name: "Amy Jade Winehouse", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1515076550/dwmjbipxnv1qbjucpyp7.jpg" } )
+artist_27_4 = Artist.create!( { name: "Jimi Hendrix", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1515076551/dwropzvhllkt6v5tm8xc.jpg"} )
+artist_27_5 = Artist.create!( { name: "Janis Joplin", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1515076553/mzxas5lpgl5b70idlyex.jpg" } )
+artist_27_6 = Artist.create!( { name: "Robert Johnson", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/v1515076554/bx6h9dnejprcijg1ww4v.png" } )
+artist_27_7 = Artist.create!( { name: "Rudy Lewis", image_url: "http://res.cloudinary.com/dlcdg8wkp/image/upload/c_scale,w_300/v1514664515/images_kp5nql.jpg" } )
 
 artist_count = Artist.count
 puts "#{artist_count} artists were created."
