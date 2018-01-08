@@ -58,19 +58,19 @@ function resetErrors() {
 }
 
 
-function removeSong(title) {
-  var pathname = window.location.pathname + "/songs.json";
-
-  $.ajax({
-    type: "DELETE",
-    url: pathname,
-    contentType: "application/json",
-    dataType: "json"
-  })
-  .done(function(data) {
-    $('<tr></tr>').remove();
-  });
-}
+// function removeSong(title) {
+//   var pathname = window.location.pathname + "/songs.json";
+//
+//   $.ajax({
+//     type: "DELETE",
+//     url: pathname,
+//     contentType: "application/json",
+//     dataType: "json"
+//   })
+//   .done(function(data) {
+//     $('???????????').remove();
+//   });
+// }
 
 $(document).ready(function() {
   $("form").bind('submit', submitSong);
