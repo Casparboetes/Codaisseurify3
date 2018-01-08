@@ -5,13 +5,19 @@
             <th> Title </th>
           </tr>
         </thead>
-      <% @artist.songs.each do |song| %>
-          <tbody>
-            <tr>
-              <td class="add song"><%= song.title %> <%= link_to "Remove Song", artist_song_url(@artist, song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default pull-right" %></td>
-            </tr>
-          </tbody>
-      <% end %>
+        <tbody>
+        <% @artist.songs.each do |song| %>
+
+              <tr>
+                <td class="add song"><%= song.title %>
+                <%= link_to "Remove Song",
+                 artist_song_url(@artist, song), method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-default pull-right" %></td>
+              </tr>
+
+        <% end %>
+
+      </tbody>
     <% else %>
       <p>Feel free to add your own songs!</p>
   <% end %>

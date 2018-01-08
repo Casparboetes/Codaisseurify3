@@ -1,32 +1,21 @@
 <div class="bio">
-<h1><%= @artist.name %></h1>
-<%= image_tag @artist.image_url %>
+  <h1><%= @artist.name %></h1>
+  <%= image_tag @artist.image_url %>
 </div>
 
+  <div class="TodoList">
+    <h2>Hit List</h2>
+  </div>
 
-  <!-- <div class="col-md-6 col-md-offset-3"> -->
-    <div class="TodoList">
-      <h2>Hit List</h2>
-    </div>
-
-    <table class="table table-striped" id="todoList">
+    <table class="table table-striped" id="render">
       <%= render "artists/form", artist: @artist %>
     </table>
 
     <div class="rendersong">
-    <%= render @song %>
+      <%= render @song %>
     </div>
-
-
-    <div class="footer">
-      Song: <span id="todo-count">1</span> •
-      Done: <span id="completed-count">0</span> •
-      Total: <span id="total-count">1</span> •
-      <a href="#" id="clean-up">Clean up</a>
-    </div>
-    </div>
-
-
-
 <hr>
+
+<a class="btn btn-danger" data-confirm="Are you sure?" id="delete-all-songs"></span>Remove all songs</a>
+
 <%= link_to "Remove Artist", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>

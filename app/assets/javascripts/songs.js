@@ -19,25 +19,26 @@ function createSong(title) {
     var songTitle = $('<td class="add song"></td>')
       .html(title);
 
-    var deleteButton = $('<a class="btn btn-danger glyphicon glyphicon-trash song-delete"></a>')
-    .attr('id', "song-" + songId)
-
-    var deleteSong = $('<td style="text-align: right;"></td>')
-    .append(deleteButton)
-
     var tableRow = $('<tr></td>')
       .attr('data-id', songId)
-      .append(songTitle).append(deleteSong);
+      .append(songTitle);
 
-    $("#artistSongs").append( tableRow );
+    $("#songList").append( tableRow );
 
-    // bindClick(songId)
   })
 
   .fail(function(error) {
     error_message = error.responseJSON.title[0];
     showError(error_message);
   });
+}
+
+function submitSong(event) {
+  event.preventDefault();
+  resetErrors();
+  var title = $("#new-song").val();
+  createSong(title);
+  $("#new-song").val(null);
 }
 
 function showError(message) {
@@ -51,43 +52,6 @@ function showError(message) {
       .append(errorHelpBlock);
 }
 
-function deleteSong(songId) {
-  var artistShowId = $('#artist-id');
-  var artistId = artistShowId.data('id');
-
-  $.ajax({
-    type: "DELETE",
-    url: "/artists/" + artistId + "/songs/" + songId + ".json",
-    contentType: "application/json",
-    dataType: "json"})
-
-}
-
-function submitDelete(event) {
-  event.preventDefault();
-  songId = $(this).parent().data('id')
-  $(this).parent().remove()
-  deleteSong(songId);
-}
-
-function deleteAllSongs(event) {
-  event.preventDefault();
-  $.each($(".song-id"), function(index, song) {
-    $song = $(song);
-    songId = $(song).data('id');
-    $song.remove();
-    deleteSong(songId);
-  });
-}
-
-function submitSong(event) {
-  event.preventDefault();
-  resetErrors();
-  var title = $("#new-song").val();
-  createSong(title);
-  $("#new-song").val(null);
-}
-
 function resetErrors() {
   $("#error_message").remove();
   $("#formgroup-song").removeClass("has-error");
@@ -95,6 +59,4 @@ function resetErrors() {
 
 $(document).ready(function() {
   $("form").bind('submit', submitSong);
-  $(".destroy-song").on('click', submitDelete);
-  $(".delete-all").on('click', deleteAllSongs);
 });
