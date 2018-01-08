@@ -21,10 +21,11 @@ function createSong(title) {
 
     var deleteSongButton = $('<a data-confirm="Are you sure?" class="btn btn-default pull-right" rel="nofollow" data-method="delete" href="' +
     window.location.pathname + '/songs/' + songId + '">Remove Song</a>')
-    
-        // deleteSongButton.addClass("btn btn-default pull-right")
-
-    songTitle.append(deleteSongButton);
+    .append(deleteSongButton);
+        // can also use deleteSongButton.addClass("btn btn-default pull-right")
+          // deleteSongButton.addRel(nofollow) ?
+          //   deleteSongButton.addDatamethod("delete") ? --> look up addClass, addRel, addDataMethod
+            // songTitle.append(deleteSongButton);
 
     var tableRow = $('<tr></td>')
       .attr('data-id', songId)
