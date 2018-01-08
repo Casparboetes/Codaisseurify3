@@ -5,8 +5,10 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <!-- Add jQuery -->
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js' %>
     <%= javascript_include_tag 'application' %>
-        <link href="https://fonts.googleapis.com/css?family=Jura|Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jura|Monoton" rel="stylesheet">
   </head>
 
   <body>
@@ -14,8 +16,6 @@
     <%= render "shared/navbar" %>
     <div class="container">
       <div class="jumbotron">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
         <div class="yield">
           <%= yield %>
         </div>
