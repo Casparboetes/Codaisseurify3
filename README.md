@@ -1,24 +1,25 @@
-# README
+# Codaisseurify
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Spotify 'clone':
 
-Things you may want to cover:
+- Learning CRUD, AJAX Calls, working with PostgreSQL, using CarrierWave & Cloudinary for uploading images
 
-* Ruby version
+### Images
 
-* System dependencies
+> Lading page
 
-* Configuration
+![coda1](https://user-images.githubusercontent.com/34174855/38547608-c77773e0-3caf-11e8-8dd1-27fc57ba921c.png)
 
-* Database creation
+> Detail Page
 
-* Database initialization
+![coda2](https://user-images.githubusercontent.com/34174855/38547609-c79335f8-3caf-11e8-9dfd-764ef7c64f09.png)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Running Locally
+```
+git clone git@github.com:Casparboetes/Codaisseurify.git
+cd codaisseurify
+bundle install
+rails db:create db:migrate db:seed
+rails server
+```

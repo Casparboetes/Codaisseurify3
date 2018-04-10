@@ -9,7 +9,7 @@ class ArtistsController < ApplicationController
   def show
     @songs = @artist.songs
     @song = Song.new
-    @song.artist_id = @artist.id
+    # @song.artist_id = @artist.id
   end
 
   def destroy
