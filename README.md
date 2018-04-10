@@ -1,8 +1,11 @@
 # Codaisseurify
 
-Spotify 'clone':
+Spotify 'clone' to learn the following:
 
-- Learning CRUD, AJAX Calls, working with PostgreSQL, using CarrierWave & Cloudinary for uploading images
+- CRUD basics
+- AJAX Calls
+- PostgreSQL
+- CarrierWave & Cloudinary for uploading images
 
 ### Images
 
@@ -14,6 +17,7 @@ Spotify 'clone':
 
 ![coda2](https://user-images.githubusercontent.com/34174855/38547609-c79335f8-3caf-11e8-9dfd-764ef7c64f09.png)
 
+> Lading page
 
 ## Running Locally
 ```
